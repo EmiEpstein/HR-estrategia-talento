@@ -30,21 +30,30 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- 2. ENCABEZADO Y MENÚ --- */
 header {
-    position: absolute; /* Superpone el menú sobre la imagen del Hero */
+    position: fixed; /* Superpone el menú sobre la imagen del Hero */
     top: 0;
     left: 0;
     width: 100%;
-    background-color: transparent; /* Fondo transparente */
+    background-color: rgba(18, 69, 86, 0); /* Fondo transparente */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 30px 15%;
     z-index: 1000;
+
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Esta clase se activará automáticamente al scrollear */
+header.scrolled {
+    background-color: var(--color-primario); /* Tu color azul oscuro */
+    padding: 15px 12%; /* Achica un poco el alto del menú para que no ocupe tanta pantalla al leer */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Le da una pequeña sombra para separarlo del contenido */
 }
 
 /* Control de tamaño del Logo izquierdo */
 .logo img {
-    height: 70px; /* Modifica este valor para achicar o agrandar el logo */
+    height: 80px; /* Modifica este valor para achicar o agrandar el logo */
     width: auto;
     display: block;
 }
@@ -74,8 +83,8 @@ header {
 }
 
 .icono-red {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     color: #ffffff; /* Blanco para que resalten sobre la foto */
     transition: color 0.3s ease;
 }
@@ -104,23 +113,28 @@ header {
 /* --- 3. SECCIÓN PRINCIPAL (HERO) --- */
 .hero {
     /* Aquí colocas la ruta de tu imagen de fondo real */
-    background-image: url('tu-imagen-de-fondo.jpg'); 
+    background-image:linear-gradient(
+        rgba(18, 69, 86, 0.7), 
+        rgba(18, 69, 86, 0.7)
+    ), 
+    url('../Imagenes/header-background.jpg'); 
     background-size: cover;
-    background-position: center;
+    background-position: top right;
     background-attachment: fixed; /* Efecto parallax básico */
     
     height: 100vh; /* Ocupa toda la pantalla */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
-    padding: 0 10%;
+    padding: 0 12% 15vh 12%;
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    color: #ffffff; /* Texto en blanco para contraste */
-    max-width: 800px;
+    color: #ffffff;
+    max-width: 100%; /* Liberamos el ancho máximo anterior */
+    white-space: nowrap; /* Esta es la regla clave que prohíbe los saltos de línea */
     margin-bottom: 20px;
 }
 
