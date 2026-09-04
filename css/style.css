@@ -1,0 +1,172 @@
+/* --- 1. VARIABLES Y RESETEO --- */
+:root {
+    --color-primario: #124556; /* Azul oscuro */
+    --color-secundario: #858ac2; /* Lila/Celeste */
+    --color-acento: #c5cb51; /* Verde lima */
+    --color-fondo: #f5f5f5; /* Gris muy claro */
+    --color-texto: #333333;
+    
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-textos: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-textos);
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+}
+
+/* --- 2. ENCABEZADO Y MENÚ --- */
+header {
+    position: fixed; /* Superpone el menú sobre la imagen del Hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(18, 69, 86, 0); /* Fondo transparente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 15%;
+    z-index: 1000;
+
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Esta clase se activará automáticamente al scrollear */
+header.scrolled {
+    background-color: var(--color-primario); /* Tu color azul oscuro */
+    padding: 15px 12%; /* Achica un poco el alto del menú para que no ocupe tanta pantalla al leer */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Le da una pequeña sombra para separarlo del contenido */
+}
+
+/* Control de tamaño del Logo izquierdo */
+.logo img {
+    height: 80px; /* Modifica este valor para achicar o agrandar el logo */
+    width: auto;
+    display: block;
+}
+
+/* Contenedor derecho: Redes + Botón */
+.header-derecha {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Separación entre los íconos y el botón */
+}
+
+/* Redes Sociales */
+.redes-sociales {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.redes-sociales a {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    transform: translateY(-3px); /* Pequeño salto hacia arriba al pasar el mouse */
+}
+
+.icono-red {
+    width: 22px;
+    height: 22px;
+    color: #ffffff; /* Blanco para que resalten sobre la foto */
+    transition: color 0.3s ease;
+}
+
+.redes-sociales a:hover .icono-red {
+    color: var(--color-secundario);
+}
+
+/* Botones globales */
+.btn-cv, .btn-primario {
+    text-decoration: none;
+    background-color: var(--color-secundario);
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cv:hover, .btn-primario:hover {
+    background-color: var(--color-primario);
+}
+
+/* --- 3. SECCIÓN PRINCIPAL (HERO) --- */
+.hero {
+    /* Aquí colocas la ruta de tu imagen de fondo real */
+    background-image:linear-gradient(
+        rgba(18, 69, 86, 0.7), 
+        rgba(18, 69, 86, 0.7)
+    ), 
+    url('../Imagenes/header-background.jpg'); 
+    background-size: cover;
+    background-position: top right;
+    background-attachment: fixed; /* Efecto parallax básico */
+    
+    height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 12% 15vh 12%;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: #ffffff;
+    max-width: 100%; /* Liberamos el ancho máximo anterior */
+    white-space: nowrap; /* Esta es la regla clave que prohíbe los saltos de línea */
+    margin-bottom: 20px;
+}
+
+.hero h3 {
+    font-size: 1.5rem;
+    color: #ffffff; /* Texto en blanco para contraste */
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+/* --- 4. SECCIÓN ESTADÍSTICAS --- */
+.estadisticas {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+
+.estadisticas .dato {
+    text-align: center;
+}
+
+.estadisticas .dato p {
+    font-family: var(--fuente-titulos);
+    font-size: 3rem;
+    color: var(--color-secundario);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.estadisticas .dato h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
